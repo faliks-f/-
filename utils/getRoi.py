@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import imutils
 from utils.getPoints import get_point_width_height
 
@@ -29,7 +28,5 @@ def get_roi(image):
         [point, width, height] = get_point_width_height(roi.reshape(4, 2))
         x, y = int(point[0]), int(point[1])
         roi = image[y: y + height, x: x + width]
-        cv2.imshow("roi", roi)
-        cv2.waitKey(0)
 
-    return roi
+    return [roi, point, width, height]

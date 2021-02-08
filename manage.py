@@ -1,7 +1,6 @@
 import cv2
-from utils.getRoi import *
+from tasks.task1 import task1
 
 image = cv2.imread("./1.jpg")
-roi = get_roi(image)
-# cv2.imshow("roi", roi)
-cv2.waitKey(0)
+roi = task1(image)
+# cv2.waitKey(0)
