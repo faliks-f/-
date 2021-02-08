@@ -6,6 +6,8 @@ import cv2
 
 
 class ColorLabeler:
+
+    # 获取rgb在lab图像的值
     def __init__(self):
         colors = OrderedDict({
             "red": (255, 0, 0),
@@ -21,6 +23,7 @@ class ColorLabeler:
 
         self.lab = cv2.cvtColor(self.lab, cv2.COLOR_RGB2LAB)
 
+    # 利用lab图像识别颜色
     def label(self, image, c):
         mask = np.zeros(image.shape[:2], dtype="uint8")
         cv2.drawContours(mask, [c], -1, 255, -1)

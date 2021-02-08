@@ -28,5 +28,5 @@ def get_roi(image):
         [point, width, height] = get_point_width_height(roi.reshape(4, 2))
         x, y = int(point[0]), int(point[1])
         roi = image[y: y + height, x: x + width]
-
+        # roi = roi.copy()
     return [roi, point, width, height]

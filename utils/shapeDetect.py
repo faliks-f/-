@@ -5,6 +5,7 @@ class ShapeDetector:
     def __init__(self):
         pass
 
+    # 识别形状
     def detect(self, c):
 
         peri = cv2.arcLength(c, True)

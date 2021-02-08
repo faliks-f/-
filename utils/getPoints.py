@@ -14,6 +14,7 @@ def order_points(pts):
     return rect
 
 
+# 获取点和长宽
 def get_point_width_height(pts):
     rect = order_points(pts)
     (tl, tr, br, bl) = rect

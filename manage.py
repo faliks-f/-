@@ -1,5 +1,6 @@
 import cv2
 from tasks.task1 import task1
+from commonVariable import isSend
 
 image = cv2.imread("./1.jpg")
 roi = task1(image)
