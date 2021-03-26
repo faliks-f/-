@@ -34,7 +34,8 @@ class ColorLabeler:
 
         for (i, row) in enumerate(self.lab):
             d = dist.euclidean(row[0], mean)
-
+            if i == 1:
+                d *= 0.9
             if d < minDist[0]:
                 minDist = (d, i)
 

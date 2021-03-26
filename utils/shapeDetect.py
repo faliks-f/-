@@ -15,6 +15,8 @@ class ShapeDetector:
             shape = "triangle"
         elif len(approx) == 4:
             shape = "square"
-        elif len(approx) == 5:
+        elif 4 < len(approx) < 6:
+            shape = "empty"
+        else:
             shape = "circle"
         return shape

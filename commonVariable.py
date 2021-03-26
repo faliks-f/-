@@ -1,3 +1,2 @@
-global isSend
 isSend = False
-
+debugFlag = False
