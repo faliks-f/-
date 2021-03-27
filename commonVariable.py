@@ -1,2 +1,0 @@
-isSend = False
-debugFlag = False

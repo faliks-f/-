@@ -1,7 +1,32 @@
 import cv2
 import imutils
-from utils.getMinRect import getSurroundRect
 import numpy as np
+
+
+def __getSurroundRect(points):
+    up = 0
+    down = 480
+    left = 640
+    right = 0
+    for first in points:
+        for third in first:
+            # for third in second:
+            if third[0] > up:
+                up = third[0]
+            if third[0] < down:
+                down = third[0]
+            if third[1] < left:
+                left = third[1]
+            if third[1] > right:
+                right = third[1]
+    # print("left", left)
+    # print("right", right)
+    # print("up", up)
+    # print("down", down)
+    width = right - left
+    height = up - down
+    point = [down, left]
+    return [point, width, height]
 
 
 def __countSquare(image, contour):
@@ -27,7 +52,7 @@ def preSolve(image, debugFlag):
     cnts = imutils.grab_contours(cnts)
     cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
     for c in cnts:
-        [point, width, height] = getSurroundRect(c)
+        [point, width, height] = __getSurroundRect(c)
         total = __countSquare(thresh, c)
         if debugFlag:
             cv2.drawContours(roi, [c], -1, (0, 255, 0), 2)
@@ -40,14 +65,13 @@ def preSolve(image, debugFlag):
             # print(width * height)
             # print(cv2.contourArea(c) / (width * height))
             # print(cv2.contourArea(c) > 250000)
-        # print(height, width)
+            # print(height, width)
         if total < 1000:
             continue
         if total > 20000:
             continue
         if width / height < 0.9 or width / height > 1.1:
             continue
-        # print(height, width)
         if total / (height * width) < 0.5:
             continue
         contourList.append(c)
