@@ -10,9 +10,9 @@ class ColorLabeler:
     # 获取rgb在lab图像的值
     def __init__(self):
         colors = OrderedDict({
-            "red": (255, 0, 0),
-            "green": (0, 255, 0),
-            "blue": (0, 0, 255)})
+            "Red": (255, 0, 0),
+            "Green": (0, 255, 0),
+            "Blue": (0, 0, 255)})
 
         self.lab = np.zeros((len(colors), 1, 3), dtype="uint8")
         self.colorNames = []

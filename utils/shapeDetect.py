@@ -12,11 +12,9 @@ class ShapeDetector:
         approx = cv2.approxPolyDP(c, 0.04 * peri, True)
 
         if len(approx) == 3:
-            shape = "triangle"
+            shape = "Triangle"
         elif len(approx) == 4:
-            shape = "square"
-        elif 4 < len(approx) < 6:
-            shape = "empty"
+            shape = "Square"
         else:
-            shape = "circle"
+            shape = "Circle"
         return shape

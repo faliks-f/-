@@ -6,14 +6,14 @@ def getSurroundRect(points):
     for first in points:
         for third in first:
             # for third in second:
-                if third[0] > up:
-                    up = third[0]
-                if third[0] < down:
-                    down = third[0]
-                if third[1] < left:
-                    left = third[1]
-                if third[1] > right:
-                    right = third[1]
+            if third[0] > up:
+                up = third[0]
+            if third[0] < down:
+                down = third[0]
+            if third[1] < left:
+                left = third[1]
+            if third[1] > right:
+                right = third[1]
     # print("left", left)
     # print("right", right)
     # print("up", up)
@@ -22,6 +22,7 @@ def getSurroundRect(points):
     height = up - down
     point = [down, left]
     return [point, width, height]
+
 
 def generatePoints(width, height):
     pts = []
